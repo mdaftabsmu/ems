@@ -15,15 +15,11 @@ import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
-
 import in.apedusoft.ems.converter.RoleToUserProfileConverter;
-
-
-
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.websystique.springmvc")
+@ComponentScan(basePackages = "in.apedusoft.ems")
 public class AppConfig extends WebMvcConfigurerAdapter{
 	
 	
@@ -36,7 +32,7 @@ public class AppConfig extends WebMvcConfigurerAdapter{
      */
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {
-
+		System.out.println("=====================");
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 		viewResolver.setViewClass(JstlView.class);
 		viewResolver.setPrefix("/WEB-INF/views/");

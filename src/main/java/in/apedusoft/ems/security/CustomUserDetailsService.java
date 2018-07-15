@@ -15,7 +15,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import in.apedusoft.ems.models.User;
+import in.apedusoft.ems.models.APUser;
 import in.apedusoft.ems.models.UserProfile;
 import in.apedusoft.ems.services.UserService;
 
@@ -32,7 +32,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 	@Transactional(readOnly=true)
 	public UserDetails loadUserByUsername(String ssoId)
 			throws UsernameNotFoundException {
-		User user = userService.findBySSO(ssoId);
+		APUser user = userService.findBySSO(ssoId);
 		logger.info("User : {}", user);
 		if(user==null){
 			logger.info("User not found");
@@ -43,7 +43,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 	}
 
 	
-	private List<GrantedAuthority> getGrantedAuthorities(User user){
+	private List<GrantedAuthority> getGrantedAuthorities(APUser user){
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		
 		for(UserProfile userProfile : user.getUserProfiles()){

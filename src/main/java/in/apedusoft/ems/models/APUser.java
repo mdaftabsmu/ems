@@ -19,8 +19,8 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name="USER")
-public class User implements Serializable{
+@Table(name="user")
+public class APUser implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
@@ -28,21 +28,21 @@ public class User implements Serializable{
 	private Integer id;
 	
 	@NotEmpty
-	@Column(name="USER_NAME", nullable=false)
+	@Column(name="user_name", nullable=false)
 	private String userName;
 	
 	@NotEmpty
-	@Column(name="PASSWORD", nullable=false)
+	@Column(name="user_password", nullable=false)
 	private String password;
 
 	
 	@NotEmpty
-	@Column(name="EMAIL", nullable=false)
+	@Column(name="email", nullable=false)
 	private String email;
 	
 	@OneToOne
-    @JoinColumn(name="REG_ID")
-    private Registration registration;
+    @JoinColumn(name="reg_id")
+    private APRegistration registration;
 
 	@NotEmpty
 	@ManyToMany(fetch = FetchType.LAZY)
@@ -114,7 +114,7 @@ public class User implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		APUser other = (APUser) obj;
 		if (email == null) {
 			if (other.email != null)
 				return false;

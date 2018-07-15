@@ -2,23 +2,23 @@ package in.apedusoft.ems.services;
 
 import java.util.List;
 
-import in.apedusoft.ems.models.User;
+import in.apedusoft.ems.models.APUser;
 
 
 
 public interface UserService {
 	
-	User findById(int id);
+	APUser findById(int id);
 	
-	User findBySSO(String sso);
+	APUser findBySSO(String sso);
 	
-	void saveUser(User user);
+	void saveUser(APUser user);
 	
-	void updateUser(User user);
+	void updateUser(APUser user);
 	
 	void deleteUserBySSO(String sso);
 
-	List<User> findAllUsers(); 
+	List<APUser> findAllUsers(); 
 	
 	boolean isUserSSOUnique(Integer id, String sso);
 

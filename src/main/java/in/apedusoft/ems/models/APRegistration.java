@@ -12,8 +12,8 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name="REGISTRATION")
-public class Registration implements Serializable{
+@Table(name="registrataion")
+public class APRegistration implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -21,18 +21,18 @@ public class Registration implements Serializable{
 	private Integer id;
 	
 	@NotEmpty
-	@Column(name="FIRST_NAME", nullable=false)
+	@Column(name="first_name", nullable=false)
 	private String firstName;
 
 	@NotEmpty
-	@Column(name="LAST_NAME", nullable=false)
+	@Column(name="last_name", nullable=false)
 	private String lastName;
 	@NotEmpty
-	@Column(name="MOBILE", nullable=false)
+	@Column(name="mobile", nullable=false)
 	private String mobile;
 	
 	@NotEmpty
-	@Column(name="ADDRESS", nullable=false)
+	@Column(name="address", nullable=false)
 	private String address;
 	
 
