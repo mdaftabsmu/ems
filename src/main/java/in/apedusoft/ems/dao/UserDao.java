@@ -11,6 +11,8 @@ public interface UserDao {
 
 	APUser findById(int id);
 	
+	APUser findByUserName(String userName);
+	
 	APUser findBySSO(String sso);
 	
 	void save(APUser APUser);

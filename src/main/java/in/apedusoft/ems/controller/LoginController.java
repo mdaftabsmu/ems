@@ -28,5 +28,10 @@ public class LoginController {
 		System.out.println(" Login Controller value :: "+userForm);
 		
 	}
+	
+	@RequestMapping(value = "/Access_Denied", method = RequestMethod.GET)
+	public String accessDenied() {
+		return "access_denied";
+	}
 
 }

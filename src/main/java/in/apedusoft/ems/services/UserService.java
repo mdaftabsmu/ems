@@ -10,6 +10,8 @@ public interface UserService {
 	
 	APUser findById(int id);
 	
+	APUser findByUser(String userName);
+	
 	APUser findBySSO(String sso);
 	
 	void saveUser(APUser user);

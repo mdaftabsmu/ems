@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan({ "in.apedusfot.ems" })
+@ComponentScan({ "in.apedusoft.ems" })
 @PropertySource(value = { "classpath:application.properties" })
 public class HibernateConfiguration {
 
@@ -30,7 +30,7 @@ public class HibernateConfiguration {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[] { "in.apedusfot.ems.model" });
+        sessionFactory.setPackagesToScan(new String[] { "in.apedusoft.ems.models" });
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
      }
@@ -42,6 +42,7 @@ public class HibernateConfiguration {
         dataSource.setUrl(environment.getRequiredProperty("jdbc.url"));
         dataSource.setUsername(environment.getRequiredProperty("jdbc.username"));
         dataSource.setPassword(environment.getRequiredProperty("jdbc.password"));
+        System.out.println(dataSource.getPassword()+" "+dataSource.getUrl()+" "+dataSource.getUsername());
         return dataSource;
     }
     
@@ -50,6 +51,7 @@ public class HibernateConfiguration {
         properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
         properties.put("hibernate.show_sql", environment.getRequiredProperty("hibernate.show_sql"));
         properties.put("hibernate.format_sql", environment.getRequiredProperty("hibernate.format_sql"));
+        System.out.println("============ pro=========== "+properties);
         return properties;        
     }
     

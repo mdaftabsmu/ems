@@ -27,6 +27,16 @@ public class UserDaoImpl extends AbstractDao<Integer, APUser> implements UserDao
 		}
 		return user;
 	}
+	
+	public APUser findByUserName(String userName) {
+		Criteria crit = createEntityCriteria();
+		crit.add(Restrictions.eq("email", userName));
+		APUser user = (APUser)crit.uniqueResult();
+		if(user!=null){
+			Hibernate.initialize(user.getUserProfiles());
+		}
+		return user;
+	}
 
 	public APUser findBySSO(String sso) {
 		logger.info("SSO : {}", sso);
